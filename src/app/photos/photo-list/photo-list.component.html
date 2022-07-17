@@ -1,4 +1,10 @@
-<app-search></app-search>
+<!--
+filter (membro do component PhotoListComponent) está recebendo através de (onTyping),
+o valor de $event (do componente SearchComponent)
+value (membro do component SearchComponent) está recebendo o valor de filter
+(membro de PhotoListComponent)
+-->
+<app-search (onTyping)="filter = $event" [value]="filter"></app-search>
 
 <app-photos [photos]="photos | filterByDescription: filter"></app-photos>
 

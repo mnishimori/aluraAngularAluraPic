@@ -6,6 +6,7 @@ import {PhotosComponent} from './photos/photos.component';
 import {FilterByDescriptionPipe} from './filter-by-description.pipe';
 import {CardModule} from '../../shared/components/card/card.module';
 import {PhotoModule} from '../photo/photo.module';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -14,7 +15,8 @@ import {PhotoModule} from '../photo/photo.module';
     PhotoListComponent,
     PhotosComponent,
     FilterByDescriptionPipe,
-    LoadButtonComponent
+    LoadButtonComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,

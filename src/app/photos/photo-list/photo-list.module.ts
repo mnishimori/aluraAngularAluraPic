@@ -7,6 +7,7 @@ import {FilterByDescriptionPipe} from './filter-by-description.pipe';
 import {CardModule} from '../../shared/components/card/card.module';
 import {PhotoModule} from '../photo/photo.module';
 import { SearchComponent } from './search/search.component';
+import {DarkOnHoverModule} from '../../shared/directives/dark-on-hover/dark-on-hover.module';
 
 
 
@@ -21,7 +22,8 @@ import { SearchComponent } from './search/search.component';
   imports: [
     CommonModule,
     CardModule,
-    PhotoModule
+    PhotoModule,
+    DarkOnHoverModule
   ],
 })
 export class PhotoListModule { }

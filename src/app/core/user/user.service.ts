@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {TokenService} from '../token/token.service';
-import {Subject} from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 import {User} from './user';
-import * as jwt_decode from 'jwt-decode';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private userSubject = new Subject<User>();
+  private userSubject = new BehaviorSubject<User>(null);
 
   constructor(private tokenService: TokenService) {
 
@@ -17,7 +17,7 @@ export class UserService {
   }
 
   getUser(){
-    this.userSubject.asObservable();
+    return this.userSubject.asObservable();
   }
 
   public setToken(token: string): void {
@@ -27,7 +27,7 @@ export class UserService {
 
   private decodeAndNotify(): void {
     const token = this.tokenService.getToken();
-    const user = jwt_decode.decode(token) as User;
+    const user = jwt_decode(token) as User;
     this.userSubject.next(user);
   }
 }

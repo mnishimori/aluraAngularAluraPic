@@ -45,8 +45,13 @@
     </app-vmessage>
     <app-vmessage
       *ngIf="signUpForm.get('userName').errors?.lowerCase"
-      text="user name must be lower case">
+      text="User name must be lower case">
     </app-vmessage>
+    <app-vmessage
+      *ngIf="signUpForm.get('userName').errors?.userNameTaken"
+      text="User name already exists">
+    </app-vmessage>
+    <small *ngIf="signUpForm.get('userName').valid" class="text-success">User name available</small>
   </div>
 
   <div class="form-group">
@@ -65,7 +70,8 @@
     </app-vmessage>
   </div>
 
-  <button class="btn btn-primary btn-block">Register</button>
+  <button [disabled]="signUpForm.invalid || signUpForm.pending"
+          class="btn btn-primary btn-block">Register</button>
 
   <p>Already a user?<a [routerLink]="['']">Sign In!</a></p>
 </form>

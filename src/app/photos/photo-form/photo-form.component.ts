@@ -35,4 +35,8 @@ export class PhotoFormComponent implements OnInit {
     this.photoService.upload(description, allowComments, this.file)
       .subscribe(() => this.router.navigate(['']));
   }
+
+  handleFile(file: File){
+    this.file = file;
+  }
 }
